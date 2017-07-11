@@ -42,17 +42,19 @@ function persoo_plugin_init() {
 
     // IF WooCommer IS ACTIVE
     } else {
-				
-		add_action( 'wp_enqueue_scripts', 'persoo_scripts' );
-		add_action( 'admin_enqueue_scripts', 'persoo_admin_scripts' );
-		add_filter( 'woocommerce_get_settings_pages', 'persoo_woocommerce_get_settings_pages' );		
-		add_filter( 'plugin_action_links_' . PERSOO_PLUGIN_BASENAME, 'persoo_plugin_action_links' );
 
-		if ( is_persoo() ) {
-			require_once( PERSOO_DIR . 'includes/class-woo-update.php' );
-        	require_once( PERSOO_DIR . 'includes/class-persoo-js-snippet.php' );
-			add_filter( 'body_class','persoo_add_body_class' ); 			
-		}
+		if ( is_admin() ) {
+			add_action( 'admin_enqueue_scripts', 'persoo_admin_scripts' );
+			add_filter( 'woocommerce_get_settings_pages', 'persoo_woocommerce_get_settings_pages' );		
+			add_filter( 'plugin_action_links_' . PERSOO_PLUGIN_BASENAME, 'persoo_plugin_action_links' );
+		} else {
+			add_action( 'wp_enqueue_scripts', 'persoo_scripts' );
+			if ( is_persoo() ) {
+				require_once( PERSOO_DIR . 'includes/class-woo-update.php' );
+				require_once( PERSOO_DIR . 'includes/class-persoo-js-snippet.php' );
+				add_filter( 'body_class','persoo_add_body_class' ); 			
+			}
+		}						
 
 	}
 }
