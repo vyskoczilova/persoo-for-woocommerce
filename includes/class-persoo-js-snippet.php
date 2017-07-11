@@ -213,7 +213,7 @@ var persooLoader=function(a,b,c,d,e){var f=d.persooName,g='_persoo_hide_body';re
             if ( $taxonomy == "product_cat" ) {
                 return $array[0];
             } else {
-                return $this->wrapArray($array);
+                return $array;
             }
 
         }
@@ -240,8 +240,7 @@ var persooLoader=function(a,b,c,d,e){var f=d.persooName,g='_persoo_hide_body';re
             } 
 
             if ( !empty($array) ) {
-                return $this->wrapArray($array);
-                // TODO, check, if needed
+                return $array;
             } else {
                 return false;
             }
@@ -272,41 +271,6 @@ var persooLoader=function(a,b,c,d,e){var f=d.persooName,g='_persoo_hide_body';re
 
         }
 
-
-        /**
-        * Wrap arary values with siglequotes and implode them into string and add square brackets
-        *
-        * @since     1.0.0
-        * @var       array   items to wrap  
-        * @return    string  wrapped and imploded values
-        */
-        public function wrapArray( $array ) {
-            
-            $value = array_map( function ($el) { return "'{$el}'"; }, $array);
-            $value = implode( ',', $value );
-
-            return '['.$value.']';
-
-        }
-
-        /**
-        * Checks if array is associative or nor
-        *
-        * @since     1.0.0
-        * @var       array   array
-        * @return    bool  
-        */
-        public function isAssociative( $array ) {
-            
-            foreach($array as $key => $value) {
-                if ($key !== (int) $key) {
-                    return true;
-                }
-            }
-            return false;
-
-        }
-
         /**
         * Grabs impressed Products from WP Query
         *
@@ -322,7 +286,7 @@ var persooLoader=function(a,b,c,d,e){var f=d.persooName,g='_persoo_hide_body';re
                     array_push ( $impressedProducts, $p->ID );
                 }
             }
-            return $this->wrapArray($impressedProducts);
+            return $impressedProducts;
         }
 
     }
