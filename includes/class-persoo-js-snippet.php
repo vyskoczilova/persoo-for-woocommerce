@@ -158,9 +158,7 @@ var persooLoader=function(a,b,c,d,e){var f=d.persooName,g='_persoo_hide_body';re
                     $tax = $order->get_total_tax();
                     $shipping = $woo->shipping_total( $order );
 
-                    foreach ( $order->get_items() as $item ) {
-
-                       //var_dump( $item );
+                    foreach ( $order->get_items() as $item ) {                    
 
                        $item_quantity = $woo->order_item_quantity( $item );
                        $item_price = $woo->order_item_price( $item );
@@ -184,6 +182,7 @@ var persooLoader=function(a,b,c,d,e){var f=d.persooName,g='_persoo_hide_body';re
         * Generates correctly fomatted dataLayer from array
         *
         * @since     1.0.0
+        * @var       array     dataLayer array to format
         * @return    string    Formatted dataLayer.
         */
         public function dataLayerEncode( $array ) {
@@ -242,6 +241,7 @@ var persooLoader=function(a,b,c,d,e){var f=d.persooName,g='_persoo_hide_body';re
 
             if ( !empty($array) ) {
                 return $this->wrapArray($array);
+                // TODO, check, if needed
             } else {
                 return false;
             }

@@ -8,36 +8,36 @@ if ( ! defined( 'WPINC' ) ) {
 if ( ! class_exists( 'persooXmlHelpers' ) ) {
     class persooXmlHelpers {
 
-        public function get_kategorie( $product_id ) {
-            $kategorie = array();
-            $dostupne_kategorie = get_the_terms( $product_id, 'product_cat' );
-            if ( $dostupne_kategorie && ! is_wp_error( $dostupne_kategorie ) ) {
-                $kategorie = $dostupne_kategorie;
+        public function get_categories( $product_id ) {
+            $categories = array();
+            $available_categories = get_the_terms( $product_id, 'product_cat' );
+            if ( $available_categories && ! is_wp_error( $available_categories ) ) {
+                $categories = $available_categories;
             }
-            return $kategorie;
+            return $categories;
         }
 
-        public function popis_produktu( $post_excerpt, $post_content, $varianta ) {
+        public function get_product_description( $post_excerpt, $post_content, $variation ) {
             $description = "";
-            $produkt_description = "";
-            $varianta_description = "";
+            $product_description = "";
+            $variation_description = "";
             if ( ! empty ( $post_excerpt ) ) {
-                $produkt_description = $post_excerpt;
+                $product_description = $post_excerpt;
             } else {
-                $produkt_description = $post_content;
+                $product_description = $post_content;
             }
-            if ( $varianta ) {
+            if ( $variation ) {
                 if ( defined( 'WOOCOMMERCE_VERSION' ) && version_compare( WOOCOMMERCE_VERSION, '2.4', '>=' ) ) {
-                $varianta_description = $varianta->get_variation_description();
+                $variation_description = $variation->get_variation_description();
                 } else {
-                $varianta_description = get_post_meta( $varianta->variation_id, '_variation_description', true );
+                $variation_description = get_post_meta( $variation->variation_id, '_variation_description', true );
                 }
-                if ( empty ( $varianta_description ) ) {
-                $varianta_description = $produkt_description;
+                if ( empty ( $variation_description ) ) {
+                $variation_description = $product_description;
                 }
-                $description = $varianta_description;
+                $description = $variation_description;
             } else {
-                $description = $produkt_description;
+                $description = $product_description;
             }
             $description = strip_shortcodes( $description );
             $description = str_replace( chr(26), '', $description );

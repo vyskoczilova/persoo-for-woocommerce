@@ -44,21 +44,21 @@ if ( ! class_exists( 'persooProductFeed' ) ) {
 
                         require( PERSOO_DIR . 'includes/feed/product_id.php' );                 
 
-                        if ( $produkt->is_type( 'variable' ) ) {
+                        if ( $product->is_type( 'variable' ) ) {
 
                             require( PERSOO_DIR . 'includes/feed/master_id.php' ); 
 
-                            foreach( $produkt->get_available_variations() as $variation ) {
+                            foreach( $product->get_available_variations() as $available_variation ) {
                             
-                                $varianta = new WC_Product_Variation( $variation['variation_id'] );
-                                if ( $varianta->variation_is_visible() ) {
+                                $variation = new WC_Product_Variation( $available_variation['variation_id'] );
+                                if ( $variation->variation_is_visible() ) {
 
                                     require( PERSOO_DIR . 'includes/feed/product_variation.php' ); 
                                     
                                 }
                             }
                             
-                        } elseif ( $produkt->is_type( 'simple' ) ) {
+                        } elseif ( $product->is_type( 'simple' ) ) {
 
                             require( PERSOO_DIR . 'includes/feed/product_simple.php' ); 
 
@@ -95,7 +95,7 @@ function persoo_product_xml_update() {
   }
   update_option( $lock_name, time() );
 
-  $limit = 1000; // Defaultní počet produktů zpracovaných najednou...
+  $limit = 1000; // Number of products processed in one call
   $offset = 0;
   $progress = get_option( 'persoo_product_xml_progress' );
   if ( ! empty ( $progress ) ) {
@@ -149,41 +149,39 @@ function persoo_product_xml_update() {
   }
   wp_schedule_single_event( current_time( 'timestamp', 1 ) + ( 3 * MINUTE_IN_SECONDS ), 'persoo_product_xml_batch' );
 
-  //$xmlWriter->writeAttribute( 'xmlns', 'http://www.zbozi.cz/ns/offer/1.0' );
-
-  $pocet_produkt = 0;
-  $prubezny_pocet = 0;
+  $number_of_products = 0;
+  $current_number_of_products = 0;
 
   foreach ( $products as $product_id ) {
     
-    if ( $prubezny_pocet > $limit ) {
+    if ( $current_number_of_products > $limit ) {
       break;
     }
 
     require( PERSOO_DIR . 'includes/feed/product_id.php' ); 
 
-    if ( $produkt->is_type( 'variable' ) ) {
+    if ( $product->is_type( 'variable' ) ) {
 
       require( PERSOO_DIR . 'includes/feed/master_id.php' ); 
 
-      foreach( $produkt->get_available_variations() as $variation ) {
-        $varianta = new WC_Product_Variation( $variation['variation_id'] );
-        if ( $varianta->is_in_stock() && $varianta->variation_is_visible() ) {
+      foreach( $product->get_available_variations() as $available_variation ) {
+        $variation = new WC_Product_Variation( $available_variation['variation_id'] );
+        if ( $variation->is_in_stock() && $variation->variation_is_visible() ) {
 
           require( PERSOO_DIR . 'includes/feed/product_variation.php' ); 
           
         }
-        $prubezny_pocet = $prubezny_pocet + 1;
+        $current_number_of_products++;
       }
-    } elseif ( $produkt->is_type( 'simple' ) ) {
-      if ( $produkt->is_in_stock() ) {
+    } elseif ( $product->is_type( 'simple' ) ) {
+      if ( $product->is_in_stock() ) {
         
         require( PERSOO_DIR . 'includes/feed/product_simple.php' );
 
       }
-      $prubezny_pocet = $prubezny_pocet + 1;
+      $current_number_of_products++;
     }
-    $pocet_produkt = $pocet_produkt + 1;
+    $number_of_products++;
   }
   
   $output = $xmlWriter->outputMemory();
@@ -198,7 +196,7 @@ function persoo_product_xml_update() {
   file_put_contents( WP_CONTENT_DIR . '/'.$persoo_product_feed.'.tmp', $output, FILE_APPEND );
   $xmlWriter->flush( true );
   
-  $offset = $offset + $pocet_produkt;
+  $offset = $offset + $number_of_products;
   
   update_option( 'persoo_product_xml_progress', utf8_encode(html_entity_decode($offset )));
   delete_option( $lock_name );
