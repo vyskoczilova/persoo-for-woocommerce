@@ -3,11 +3,15 @@ Contributors: vyskoczilova, persoo
 Tags: persoo, woocommerce
 Requires at least: 4.6
 Tested up to: 4.8
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 WC requires at least: 2.6.14
 WC tested up to: 3.1.0
+
+Official plugin. Enable personalized product recommendations, cross-sell and alternatives, super-fast personalized search and autocomplete to increase converions and revenue.
+
+== Description ==
 
 **This is an official plugin made together with [Persoo](http://persoo.co)**. Latest files available on [Github](https://github.com/vyskoczilova/persoo-for-woocommerce) and ready to fork.
 
@@ -32,6 +36,10 @@ Simply add **carousels** with **alternative products** in the product page, or i
 1. Done!
 
 == Changelog ==
+
+= 1.0.1 (2017-07-11) =
+* Add: .pot file
+* Fix: Fatal error after first plugin activation
 
 = 1.0.0 (2017-07-10) =
 * Initial release
