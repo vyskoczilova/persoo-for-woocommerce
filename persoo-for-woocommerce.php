@@ -2,7 +2,7 @@
 /*
 Plugin Name: Persoo for WooCommerce
 Description: Official plugin. Enable personalized product recommendations, cross-sell and alternatives, super-fast personalized search and autocomplete to increase converions and revenue.
-Version:     1.0.1
+Version:     1.0.2
 Author:      Persoo
 Author URI:  http://persoo.co
 */

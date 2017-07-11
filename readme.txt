@@ -3,7 +3,7 @@ Contributors: vyskoczilova, persoo
 Tags: persoo, woocommerce
 Requires at least: 4.6
 Tested up to: 4.8
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 WC requires at least: 2.6.14
@@ -36,6 +36,9 @@ Simply add **carousels** with **alternative products** in the product page, or i
 1. Done!
 
 == Changelog ==
+
+= 1.0.2 (unreleased) =
+* Polish and tweak code and fix naming
 
 = 1.0.1 (2017-07-11) =
 * Add: .pot file
