@@ -188,39 +188,7 @@ var persooLoader=function(a,b,c,d,e){var f=d.persooName,g='_persoo_hide_body';re
         */
         public function dataLayerEncode( $array ) {
 
-            $encoded = 'var '.$this->dataLayerName." = [{\n";            
-            $n = 1;            
-            while (list($key, $val) = each($array)) {            
-                if ( ! is_array( $val ) ) {
-                    $encoded .= "\t$key: ".(substr($val,0,1) =='[' ? '' : "'").$val.(substr($val,0,1) =='[' ? '' : "'").($n < count($array) ? ',' : '')."\n";            
-                } else {
-                    $encoded .= "\t$key: {\n";
-                    $nn = 1;                    
-                    while (list($key, $value) = each($val)) {
-                        if ( ! is_array( $value ) ) {
-                            $encoded .= "\t  $key: '$value'".($nn < count($val) ? ',' : '')."\n";
-                        } else {
-                            if ( $this->isAssociative($value) ) {
-                                $encoded .= "\t  $key: {";
-                                $nnn = 1;                    
-                                while (list($k, $v) = each($value)) {
-                                    $encoded .= "$k: $v".($nnn < count($value) ? ', ' : '');
-                                    $nnn++;
-                                }
-                                $encoded .= "}".($nn < count($val) ? ',' : '')."\n";                            
-                            }  else {
-                                $encoded .= "\t  $key: [$this->wrapArray($value)] \n";
-                            }             
-                        }
-                        $nn++;
-                    }
-                    $encoded .= "\t}".($n < count($array) ? ',' : '')."\n";
-                }
-                $n++;
-            }
-            $encoded .= "}];\n";
-
-            return $encoded;
+             return 'var ' . $this->dataLayerName . ' = ' . json_encode([$array], JSON_PRETTY_PRINT);
 
         }
 
