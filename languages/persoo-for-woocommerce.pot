@@ -1,0 +1,164 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Persoo for WooCommerce\n"
+"POT-Creation-Date: 2017-07-11 12:17+0200\n"
+"PO-Revision-Date: 2017-07-11 12:17+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: persoo-for-woocommerce.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#. Author of the plugin/theme
+#: includes/admin/wc-settings-tab.php:32 persoo-for-woocommerce.php:170
+msgid "Persoo"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:46
+msgid "General"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:47
+msgid "Avanced"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:79
+msgid "Product Feed:"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:79 includes/admin/wc-settings-tab.php:80
+msgid "dynamic"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:79 includes/admin/wc-settings-tab.php:80
+msgid "static XML"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:79 includes/admin/wc-settings-tab.php:80
+msgid "last generated:"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:79 includes/admin/wc-settings-tab.php:80
+msgid "never"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:79 includes/admin/wc-settings-tab.php:80
+msgid "updates daily"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:80
+msgid "Category Feed:"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:83
+msgid ""
+"To obtain your Persoo Product Feed URL you need to activate the Persoo "
+"integration first."
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:88
+msgid "Persoo integration"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:94
+msgid "API"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:96
+msgid "Paste your Persoo API key."
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:105
+msgid "Activate integration"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:107
+msgid "Check to activate the Persoo integration."
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:118
+msgid "Additional Persoo Fields"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:120
+msgid ""
+"Here you can map existing categories to Persoo fields. If you don't want to "
+"change its name, let the field empty."
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:141
+msgid "Advanced"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:147
+msgid "Data Layer Name"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:158
+msgid "Ignored taxonomies"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:160
+msgid ""
+"List of fields to be excluded from the product feed, comma separated values"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:166
+msgid "Feed secutity token"
+msgstr ""
+
+#: includes/admin/wc-settings-tab.php:168
+msgid "Regenerate"
+msgstr ""
+
+#: persoo-for-woocommerce.php:138
+msgid "View Persoo settings"
+msgstr ""
+
+#: persoo-for-woocommerce.php:138
+msgid "Settings"
+msgstr ""
+
+#: persoo-for-woocommerce.php:171
+msgid "WooCommerce"
+msgstr ""
+
+#: persoo-for-woocommerce.php:174
+#, php-format
+msgid ""
+"%1$s requires %2$s. Please activate %2$s before activation of %1$s. This "
+"plugin has been deactivated."
+msgstr ""
+
+#: persoo-for-woocommerce.php:208
+msgid ""
+"Do you really want to proceed? You will need to change the Feed URL in the "
+"Persoo Application. Sometimes you will need to reasign WordPress' Permalinks"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Persoo for WooCommerce"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Official plugin. Enable personalized product recommendations, cross-sell and "
+"alternatives, super-fast personalized search and autocomplete to increase "
+"converions and revenue."
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://persoo.co"
+msgstr ""
