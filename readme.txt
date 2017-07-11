@@ -1,5 +1,5 @@
 ﻿=== Persoo for WooCommerce ===
-Contributors: vyskoczilova
+Contributors: vyskoczilova, persoo
 Tags: persoo, woocommerce
 Requires at least: 4.6
 Tested up to: 4.8
