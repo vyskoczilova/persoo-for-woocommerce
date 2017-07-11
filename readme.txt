@@ -39,7 +39,6 @@ Simply add **carousels** with **alternative products** in the product page, or i
 
 = 1.0.1 (2017-07-11) =
 * Add: .pot file
-* Fix: Fatal error after first plugin activation
 
 = 1.0.0 (2017-07-10) =
 * Initial release
