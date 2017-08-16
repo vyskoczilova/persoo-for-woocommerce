@@ -37,7 +37,7 @@ Simply add **carousels** with **alternative products** in the product page, or i
 
 == Changelog ==
 
-= 1.0.2 (unreleased) =
+= 1.0.2 (2017-07-25) =
 * Polish and tweak code and fix naming
 
 = 1.0.1 (2017-07-11) =
